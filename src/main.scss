@@ -1,0 +1,29 @@
+html {
+  body {
+    background-color: #000;
+    #presentation {
+      overflow: hidden;
+      width: calc(16 * 100vh / 9);
+      height: 100vh;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      #page0 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        .title {
+          font-size: 15vh;
+        }
+        .authors {
+          font-size: 5vh;
+        }
+      }
+    }
+  }
+}
