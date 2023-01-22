@@ -1,14 +1,15 @@
 //16:9での1vw,1vhみたいなもん(レスポンシブ対応？
-$width: calc(16 * 1vh / 9);
-$height: calc(9 * 1vw / 16);
+$width: min(calc(16 * 1vh / 9), 1vw);
+$height: min(calc(9 * 1vw / 16), 1vh);
 //本体
 html {
   body {
+    //overflow: hidden;
     background-color: #000;
     #presentation {
-      overflow: hidden;
-      width: $width * 100;
-      height: $height * 100;
+      z-index: -999999;
+      width: calc($width * 100);
+      height: calc($height * 100);
       background-color: #fff;
       position: absolute;
       top: 50%;
@@ -22,10 +23,10 @@ html {
         text-align: center;
 
         .title {
-          font-size: 15 * $height;
+          font-size: calc(15 * $height);
         }
         .authors {
-          font-size: 5 * $height;
+          font-size: calc(5 * $height);
         }
       }
     }
