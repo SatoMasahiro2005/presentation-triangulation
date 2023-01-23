@@ -1,0 +1,1 @@
+[スライドを見る](https://triangulation.presentation.masahiro.dev)
