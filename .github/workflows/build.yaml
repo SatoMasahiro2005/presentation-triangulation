@@ -3,15 +3,22 @@ on:
   push:
     branches:
       - master
+
 jobs:
-  build:
+  deploy:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v3
-      - name: Build and push
-        uses: alexthemaster/action-build-typescript@master
-        with:
-          pushToBranch: true # optional; can either be true or false | defaults to false
-          branch: "dist" # optional; the name of the branch the action should push the compiled code to | defaults to dist
-          githubToken: ${{ secrets.GITHUB_TOKEN }} # required if you use the pushToBranch option
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: npx parcel build src/index.html
+
+      # https://github.com/s0/git-publish-subdir-action
+      - name: Push to build branch
+        uses: s0/git-publish-subdir-action@master
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
