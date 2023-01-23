@@ -14,7 +14,7 @@ jobs:
         run: npm i @parcel/transformer-sass
 
       - name: Build
-        run: npx parcel build src/index.html --dist-dir build
+        run: npx parcel build src/index.html --dist-dir build --public-url
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
