@@ -16,11 +16,9 @@ jobs:
       - name: Build
         run: npx parcel build src/index.html --dist-dir build
 
-      # https://github.com/s0/git-publish-subdir-action
-      - name: Push to build branch
-        uses: s0/git-publish-subdir-action@master
-        env:
-          REPO: self
-          BRANCH: build
-          FOLDER: build
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          cname: triangulation.presentation.masahiro.dev
