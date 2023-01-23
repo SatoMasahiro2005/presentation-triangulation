@@ -1,6 +1,6 @@
 let pageIndex = 0; //ページ番号
 let getPage = (index: number) => document.getElementById(`page${index}`); //現在のページを取得
-let numberOfPages; //多分よくないグローバル変数の使い方
+let numberOfPages: number; //多分よくないグローバル変数の使い方
 let presentation =
   document.getElementById("presentation") ?? document.createElement("div"); //プレゼンテーション全体を含む要素を取得
 
