@@ -6,10 +6,11 @@ let presentation =
 
 window.onload = () => {
   numberOfPages = document.getElementById("body")?.childElementCount ?? 0; //ページ数を取得
-  console.log(`number of pages: ${numberOfPages}`);
+  console.info(`number of pages: ${numberOfPages}`);
   for (let i = 0; i <= numberOfPages - 1; i++) {
     getPage(i)?.setAttribute("style", "display: none"); //全てのページを非表示にする
   }
+  if (location.search == "?lastPage") pageIndex = numberOfPages - 1; //最後のページを表示する
   getPage(pageIndex)?.setAttribute("style", "display: block"); //最初のページを表示する
 };
 

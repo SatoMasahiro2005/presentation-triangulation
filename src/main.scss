@@ -1,12 +1,14 @@
 //16:9での1vw,1vhみたいなもん(レスポンシブ対応？
 $width: min(calc(16 * 1vh / 9), 1vw);
 $height: min(calc(9 * 1vw / 16), 1vh);
+
 //本体
 html {
   body {
     //overflow: hidden;
     background-color: #000;
     #presentation {
+      color: #333;
       z-index: -999999;
       width: calc($width * 100);
       height: calc($height * 100);
@@ -16,7 +18,21 @@ html {
       left: 50%;
       transform: translate(-50%, -50%);
       #body {
+        margin: calc(5 * $height);
         .head {
+          &::before {
+            content: "▍";
+            color: #00517c;
+          }
+          font-size: calc(8 * $height);
+          font-weight: 600;
+          padding-bottom: calc(2 * $height);
+          border-bottom: 2px solid #000;
+          border-image: linear-gradient(to right, #00517c, 5%, #fff, 150%, #fff)
+            1;
+        }
+        .body {
+          margin: calc(5 * $height);
           font-size: calc(5 * $height);
         }
         #page0 {
@@ -36,4 +52,11 @@ html {
       }
     }
   }
+}
+
+#widthHeight {
+  visibility: hidden;
+  position: absolute;
+  width: calc($width * 100);
+  height: calc($height * 100);
 }
